@@ -7,7 +7,7 @@ try {
   const downloadUrl = "https://raw.githubusercontent.com/fnproject/cli/master/install"
   core.info(`Download from "${downloadUrl}"`)
   const pythonPath = tc.downloadTool(downloadUrl);
-  core.info(`${pythonPath}`)
+  core.setOutput(`${pythonPath}`)
   exec.exec('sh',['curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh'])
   core.setOutput("Successfully installed Fn");
   const payload = JSON.stringify(github.context.payload, undefined, 2)
