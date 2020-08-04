@@ -6,8 +6,8 @@ const tc = require('@actions/tool-cache');
 try {
   const downloadUrl = "https://raw.githubusercontent.com/fnproject/cli/master/install"
   core.info(`Download from "${downloadUrl}"`)
-  const pythonPath = await tc.downloadTool(downloadUrl);
-  core.info(`${pythonpath}`)
+  const pythonPath = tc.downloadTool(downloadUrl);
+  core.info(`${pythonPath}`)
   exec.exec('sh',['curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh'])
   core.setOutput("Successfully installed Fn");
   const payload = JSON.stringify(github.context.payload, undefined, 2)
